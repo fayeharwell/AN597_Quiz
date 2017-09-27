@@ -1,22 +1,68 @@
 ---
-title: "Quiz01"
+title: "Quiz 1-Faye Harwell"
 author: "Faye Harwell"
 date: "September 26, 2017"
 output: html_document
 ---
 
-
 ```{r}
 library(curl)
-f <- f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
+
+library(dplyr)
 ```
 
-### Unfortunately, I could not get this to work. I was trying to use the arrange function, which typically arranges columns in descending order (which for a character would be alphabetical)... I only moderately hate technology and glitches like this...
+### JUST KIDDING (EXCEPT I really do hate computers and being sick... so there is my one salty comment for you) Unfortunately, I could not get this to work. I was trying to use the arrange function, which typically arranges columns in descending order (which for a character would be alphabetical)... I only moderately hate technology and glitches like this...
 
 ```{r}
-f %>% arrange(first_name,last_name)
+d_filtered <- filter(d,d$gender== "Female")
 
-f
+d_filtered
 ```
+
+### Now, that I got all my females organized without dem males getting in the way... it is time to organize them via first name and last name. Here goes nothing (The arrange function worked for me now... I am guessing this was not actually how you wanted this task completed though...)
+
+```{r}
+ d_filtered %>% arrange(first_name,last_name) -> ta_da
+
+ta_da
+
+```
+
+### NOW, I could take the mean or median of any variable on these lovely ladies... Here goes nothing...
+
+### Average and Median Height of my Lovely Ladies
+```{r}
+ta_da %>% 
+    summarise(avg_height = mean(height))
+```
+
+```{r}
+ta_da %>% 
+    summarise(med_height = median(height))
+```
+### Average and Median Weight of my Lovely Ladies
+```{r}
+ta_da %>% 
+    summarise(avg_weight = mean(weight)) 
+```
+
+```{r}
+ta_da %>% 
+    summarise(med_weight = median(weight)) 
+```
+
+### Average and Median Number of Zombies Slayed
+```{r}
+ta_da %>% 
+    summarise(avg_zombies_killed = mean(zombies_killed)) 
+```
+
+```{r}
+ta_da %>% 
+    summarise(med_zombies_killed = median(zombies_killed)) 
+```
+
+### Let's hear it for the ladies! They killed all them zombies. I am very, very sorry for the lateness on this assignment. Generally, I have my stuff together... today not so much. I understand if this quiz can't be graded or must be marked lower for tardiness. Thank you Chris- and I will try to be more on top of it next week!
