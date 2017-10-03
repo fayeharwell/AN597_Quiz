@@ -1,17 +1,16 @@
 ---
-title: "Quiz 1-Faye Harwell"
+title: "Quiz01"
 author: "Faye Harwell"
 date: "September 26, 2017"
 output: html_document
 ---
+
 
 ```{r}
 library(curl)
 f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
-
-library(dplyr)
 ```
 
 ### JUST KIDDING (EXCEPT I really do hate computers and being sick... so there is my one salty comment for you) Unfortunately, I could not get this to work. I was trying to use the arrange function, which typically arranges columns in descending order (which for a character would be alphabetical)... I only moderately hate technology and glitches like this...
